@@ -42,7 +42,7 @@ var SimpleCore = {
         $(document).on('click', '.btn-thumbs-up', function (e) {
             e.preventDefault();
             if (SimpleCore.donateImg != '') {
-                SimpleCore.alert('扫码请我喝可乐','<img style="width:160px;background:#fff;" src="' + SimpleCore.donateImg + '">');
+                SimpleCore.alert('扫码请我喝可乐','<img style="width:320px; height: 320px; background:#fff;" src="' + SimpleCore.donateImg + '">');
             } else {
                 SimpleCore.alert('未开通自定义功能','<h4 style="text-align: center;margin: 0">联系博主试试看 ：）</h4>');
             }
@@ -171,7 +171,7 @@ var SimpleCore = {
         $('#notice').css('margin-right', -$('#notice').width() / 2);
         setTimeout(function () {
             $('#' + id).remove();
-        }, 8000);
+        }, 15000);
     },
     setLocalData: function (key, value) {
         if (window.localStorage) {
