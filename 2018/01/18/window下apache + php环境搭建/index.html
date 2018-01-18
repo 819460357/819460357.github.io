@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>window下apache搭建 - Top</title>
+<title>window下apache + php环境搭建 - Top</title>
 
 <meta name="keywords" content="">
 
@@ -180,14 +180,22 @@
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">window下apache搭建</h2>
+            <h2 class="post-title">window下apache + php环境搭建</h2>
             <div class="post-meta">
-                本文总共276个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2662个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h1 id="1、下载apache"><a href="#1、下载apache" class="headerlink" title="1、下载apache"></a>1、下载apache</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下载地址<a href="http://httpd.apache.org/download.cgi。" target="_blank" rel="noopener">http://httpd.apache.org/download.cgi。</a> 至于window下apache的安装就不啰嗦了，网上有很多教程</p>
-<h1 id="2、配置apache"><a href="#2、配置apache" class="headerlink" title="2、配置apache"></a>2、配置apache</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开apache安装目录下的conf目录，用编辑器打开httpd.conf文件修改配置信息</p>
+            <h1 id="apache环境搭建"><a href="#apache环境搭建" class="headerlink" title="apache环境搭建"></a>apache环境搭建</h1><h2 id="1、下载apache"><a href="#1、下载apache" class="headerlink" title="1、下载apache"></a>1、下载apache</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下载地址<a href="http://httpd.apache.org/download.cgi。" target="_blank" rel="noopener">http://httpd.apache.org/download.cgi。</a> 至于window下apache的安装就不啰嗦了，网上有很多教程</p>
+<h2 id="2、配置apache"><a href="#2、配置apache" class="headerlink" title="2、配置apache"></a>2、配置apache</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开apache安装目录下的conf目录，用编辑器打开httpd.conf文件修改配置信息<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ServerRoot:   ‘apache的安装目录’</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ServerName：   去掉#改为 127.0.0.1</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>DocumentRoot：‘apache的安装目录’ + ‘/htdocs’</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory     &quot;网站根目录地址&quot;&gt;  与上一步地址相同</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ScriptAlias     改为   /cgi-bin/ &quot;apache目录+/cgi-bin/&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory     &quot;apache目录+/cgi-bin/&quot;&gt;（与上面那个Directory 不同）</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <code>Listen         80改为自定义端口</code></p>
+<h2 id="3、配置apache支持PHP"><a href="#3、配置apache支持PHP" class="headerlink" title="3、配置apache支持PHP"></a>3、配置apache支持PHP</h2><ol>
+<li>让Apache可以解析php文件，在配置文件中找到 &nbsp; #LoadModule vhost_alias_module modules/mod_vhost_alias.so &nbsp; 在下一行添加 (绿色的位置是根据PHP的所在目录而定的)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>LoadModule php5_module &quot;D:/Develop/PHP/php5apache2_2.dll&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>PHPIniDir &quot;D:/Develop/PHP&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>AddType application/x-httpd-php .php .html .htm</code></li>
+<li>在配置文件中找到 <code>DirectoryIndex index.html</code> 改为<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>DirectoryIndex index.php index.html</code>  </li>
+</ol>
+<h2 id="4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）"><a href="#4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）" class="headerlink" title="4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）"></a>4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）</h2><ol>
+<li>找到<code>DocumentRoot &quot;D:/Develop/Apache2.2/htdocs&quot;</code> 改为<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>DocumentRoot &quot;D:/Workspace/PHP&quot;</code> </li>
+<li>再找到<code>&lt;Directory &quot;D:/Develop/Apache2.2/htdocs&quot;&gt;</code> 改为<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory &quot;D:/Workspace/PHP&quot;&gt;</code></li>
+</ol>
 
         </div>
         <div class="post-tool">
