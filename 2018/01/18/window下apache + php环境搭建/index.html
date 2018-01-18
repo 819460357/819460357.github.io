@@ -1,37 +1,5 @@
 <!DOCTYPE HTML>
 <html class="no-js" lang="zh-CN">
-<!--
-//                            _ooOoo_
-//                           o8888888o
-//                           88" . "88
-//                           (| -_- |)
-//                            O\ = /O
-//                        ____/`---'\____
-//                      .   ' \\| |// `.
-//                       / \\||| : |||// \
-//                     / _||||| -:- |||||- \
-//                       | | \\\ - /// | |
-//                     | \_| ''\---/'' | |
-//                      \ .-\__ `-` ___/-. /
-//                   ___`. .' /--.--\ `. . __
-//                ."" '< `.___\_<|>_/___.' >'"".
-//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
-//                 \ \ `-. \_ __\ /__ _/ .-` / /
-//         ======`-.____`-.___\_____/___.-`____.-'======
-//                            `=---='
-//                 拦截插件累计拦截逗比攻击"1381438"次！
-//         .............................................
-//                  佛祖保佑             永无BUG
-//          佛曰:
-//                  写字楼里写字间，写字间里程序员；
-//                  程序人员写程序，又拿程序换酒钱。
-//                  酒醒只在网上坐，酒醉还来网下眠；
-//                  酒醉酒醒日复日，网上网下年复年。
-//                  但愿老死电脑间，不愿鞠躬老板前；
-//                  奔驰宝马贵者趣，公交自行程序员。
-//                  别人笑我忒疯癫，我笑自己命太贱；
-//                  不见满街漂亮妹，哪个归得程序员？
--->
 <head>
     <!--[if lte IE 9]>
 <meta http-equiv="refresh" content="0;url=https://819460357.github.io/warn.html">
@@ -182,20 +150,28 @@
             </div>
             <h2 class="post-title">window下apache + php环境搭建</h2>
             <div class="post-meta">
-                本文总共2662个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共5380个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h1 id="apache环境搭建"><a href="#apache环境搭建" class="headerlink" title="apache环境搭建"></a>apache环境搭建</h1><h2 id="1、下载apache"><a href="#1、下载apache" class="headerlink" title="1、下载apache"></a>1、下载apache</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下载地址<a href="http://httpd.apache.org/download.cgi。" target="_blank" rel="noopener">http://httpd.apache.org/download.cgi。</a> 至于window下apache的安装就不啰嗦了，网上有很多教程</p>
-<h2 id="2、配置apache"><a href="#2、配置apache" class="headerlink" title="2、配置apache"></a>2、配置apache</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开apache安装目录下的conf目录，用编辑器打开httpd.conf文件修改配置信息<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ServerRoot:   ‘apache的安装目录’</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ServerName：   去掉#改为 127.0.0.1</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>DocumentRoot：‘apache的安装目录’ + ‘/htdocs’</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory     &quot;网站根目录地址&quot;&gt;  与上一步地址相同</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ScriptAlias     改为   /cgi-bin/ &quot;apache目录+/cgi-bin/&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory     &quot;apache目录+/cgi-bin/&quot;&gt;（与上面那个Directory 不同）</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <code>Listen         80改为自定义端口</code></p>
-<h2 id="3、配置apache支持PHP"><a href="#3、配置apache支持PHP" class="headerlink" title="3、配置apache支持PHP"></a>3、配置apache支持PHP</h2><ol>
+            <h2 id="apache环境搭建"><a href="#apache环境搭建" class="headerlink" title="apache环境搭建"></a>apache环境搭建</h2><h3 id="1、下载apache"><a href="#1、下载apache" class="headerlink" title="1、下载apache"></a>1、下载apache</h3><p>下载地址<a href="http://httpd.apache.org/download.cgi。" target="_blank" rel="noopener">http://httpd.apache.org/download.cgi。</a> 至于window下apache的安装就不啰嗦了，网上有很多教程</p>
+<h3 id="2、配置apache"><a href="#2、配置apache" class="headerlink" title="2、配置apache"></a>2、配置apache</h3><p>打开apache安装目录下的conf目录，用编辑器打开httpd.conf文件修改配置信息<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ServerRoot:   ‘apache的安装目录’</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ServerName：   去掉#改为 127.0.0.1</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>DocumentRoot：‘apache的安装目录’ + ‘/htdocs’</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory     &quot;网站根目录地址&quot;&gt;  与上一步地址相同</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>ScriptAlias     改为   /cgi-bin/ &quot;apache目录+/cgi-bin/&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory     &quot;apache目录+/cgi-bin/&quot;&gt;（与上面那个Directory 不同）</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <code>Listen         80改为自定义端口</code></p>
+<h3 id="3、配置apache支持PHP"><a href="#3、配置apache支持PHP" class="headerlink" title="3、配置apache支持PHP"></a>3、配置apache支持PHP</h3><ol>
 <li>让Apache可以解析php文件，在配置文件中找到 &nbsp; #LoadModule vhost_alias_module modules/mod_vhost_alias.so &nbsp; 在下一行添加 (绿色的位置是根据PHP的所在目录而定的)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>LoadModule php5_module &quot;D:/Develop/PHP/php5apache2_2.dll&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>PHPIniDir &quot;D:/Develop/PHP&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>AddType application/x-httpd-php .php .html .htm</code></li>
 <li>在配置文件中找到 <code>DirectoryIndex index.html</code> 改为<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>DirectoryIndex index.php index.html</code>  </li>
 </ol>
-<h2 id="4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）"><a href="#4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）" class="headerlink" title="4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）"></a>4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）</h2><ol>
+<h3 id="4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）"><a href="#4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）" class="headerlink" title="4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）"></a>4、如果项目路径与apache的htdocs不一样将apache的根目录改为自己项目的路径（如果项目放在apache的htdocs请忽略该点）</h3><ol>
 <li>找到<code>DocumentRoot &quot;D:/Develop/Apache2.2/htdocs&quot;</code> 改为<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>DocumentRoot &quot;D:/Workspace/PHP&quot;</code> </li>
-<li>再找到<code>&lt;Directory &quot;D:/Develop/Apache2.2/htdocs&quot;&gt;</code> 改为<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory &quot;D:/Workspace/PHP&quot;&gt;</code></li>
+<li>再找到<code>&lt;Directory &quot;D:/Develop/Apache2.2/htdocs&quot;&gt;</code> 改为<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <code>&lt;Directory &quot;D:/Workspace/PHP&quot;&gt;</code>  </li>
 </ol>
+<h2 id="修改php的配置信息"><a href="#修改php的配置信息" class="headerlink" title="修改php的配置信息"></a>修改php的配置信息</h2><h3 id="1、-到PHP目录下把php-ini-development改名为php-ini，作为PHP的配置文件。修改php-ini。"><a href="#1、-到PHP目录下把php-ini-development改名为php-ini，作为PHP的配置文件。修改php-ini。" class="headerlink" title="1、 到PHP目录下把php.ini-development改名为php.ini，作为PHP的配置文件。修改php.ini。"></a>1、 到PHP目录下把php.ini-development改名为php.ini，作为PHP的配置文件。修改php.ini。</h3><h3 id="2、-设置PHP扩展包的具体目录，找到（具体路径根据自己PHP的安装路径来定）"><a href="#2、-设置PHP扩展包的具体目录，找到（具体路径根据自己PHP的安装路径来定）" class="headerlink" title="2、 设置PHP扩展包的具体目录，找到（具体路径根据自己PHP的安装路径来定）"></a>2、 设置PHP扩展包的具体目录，找到（具体路径根据自己PHP的安装路径来定）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>; On windows:</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>; extension_dir = &quot;ext&quot;</code><br>改为：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>; extension_dir = &quot;ext&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>extension_dir = &quot;D:/Develop/PHP/ext&quot;</code></p>
+<h3 id="3、-开启相应的库功能，找到需要开启的库的所在行"><a href="#3、-开启相应的库功能，找到需要开启的库的所在行" class="headerlink" title="3、 开启相应的库功能，找到需要开启的库的所在行"></a>3、 开启相应的库功能，找到需要开启的库的所在行</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>;extension=php_curl.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>;extension=php_gd2.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>;extension=php_mbstring.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>;extension=php_mysql.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>;extension=php_xmlrpc.dll</code><br>改为：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>extension=php_curl.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>extension=php_gd2.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>extension=php_mbstring.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>extension=php_mysql.dll</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>extension=php_xmlrpc.dll</code></p>
+<h3 id="4、-设置时区，找到"><a href="#4、-设置时区，找到" class="headerlink" title="4、  设置时区，找到"></a>4、  设置时区，找到</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>;date.timezone =</code><br>改为：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>;date.timezone = Asia/Shanghai</code>  </p>
+<h2 id="apache服务管理"><a href="#apache服务管理" class="headerlink" title="apache服务管理"></a>apache服务管理</h2><h3 id="1、安装apache服务"><a href="#1、安装apache服务" class="headerlink" title="1、安装apache服务"></a>1、安装apache服务</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>httpd -k install -n apache</code></p>
+<h3 id="2、卸载apache服务-每改一次-conf文件，都要卸载后重新安装"><a href="#2、卸载apache服务-每改一次-conf文件，都要卸载后重新安装" class="headerlink" title="2、卸载apache服务(每改一次.conf文件，都要卸载后重新安装)"></a>2、卸载apache服务(每改一次.conf文件，都要卸载后重新安装)</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>httpd -k uninstall -n apache</code></p>
+<h3 id="3、启动apache为系统服务"><a href="#3、启动apache为系统服务" class="headerlink" title="3、启动apache为系统服务"></a>3、启动apache为系统服务</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>net start apache</code></p>
+<h3 id="4、停止apache系统服务"><a href="#4、停止apache系统服务" class="headerlink" title="4、停止apache系统服务"></a>4、停止apache系统服务</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>net stop apache</code></p>
+<h3 id="5、卸载apache系统服务"><a href="#5、卸载apache系统服务" class="headerlink" title="5、卸载apache系统服务"></a>5、卸载apache系统服务</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>sc delete apache</code></p>
 
         </div>
         <div class="post-tool">
